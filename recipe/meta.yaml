@@ -16,14 +16,14 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python >=3.10,<4.0
     - pip
     - poetry
   run:
-    - python >=3.8,<4.0
+    - python >=3.10,<4.0
     - cachetools >=4.1.1
     - fastapi >=0.61.0
-    - pydantic >=1.6.1
+    - pydantic >=2.0.0
     - python-jose >=3.2.0
     - requests >=2.24.0
 
