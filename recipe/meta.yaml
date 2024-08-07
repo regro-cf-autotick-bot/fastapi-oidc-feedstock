@@ -1,13 +1,13 @@
 {% set name = "fastapi-oidc" %}
-{% set version = "0.0.9" %}
+{% set version = "0.0.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fastapi-oidc-{{ version }}.tar.gz
-  sha256: 95859b5a292c8f45a4921fb638ecbd92e981a8e2dbea216c6acd56963ab6c6d2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: aeb31a44759f320e809f707d315fee2ec91a878e7d16221a1b2a40b2b424fd85
 
 build:
   noarch: python
@@ -16,14 +16,14 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python >=3.10,<4.0
     - pip
     - poetry
   run:
-    - python >=3.8,<4.0
+    - python >=3.10,<4.0
     - cachetools >=4.1.1
     - fastapi >=0.61.0
-    - pydantic >=1.6.1
+    - pydantic >=2.0.0
     - python-jose >=3.2.0
     - requests >=2.24.0
 
