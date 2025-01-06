@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "fastapi-oidc" %}
 {% set version = "0.0.10" %}
 
@@ -6,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: aeb31a44759f320e809f707d315fee2ec91a878e7d16221a1b2a40b2b424fd85
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.10,<4.0
+    - python {{ python_min }}
     - pip
     - poetry
   run:
-    - python >=3.10,<4.0
+    - python >={{ python_min }},<4.0
     - cachetools >=4.1.1
     - fastapi >=0.61.0
     - pydantic >=2.0.0
@@ -34,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/HarryMWinters/fastapi-oidc
